@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Container from '../components/input/container';
 
 export default function Home() {
   const toggleTheme = (e) => {
@@ -19,7 +20,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <span className={styles.themeToggler} role="" onClick={toggleTheme}>☼</span>
-        <input/>
+        <Container/>
       </main>
     </div>
   )

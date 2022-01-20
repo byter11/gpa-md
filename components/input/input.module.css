@@ -1,0 +1,36 @@
+.container {
+}
+
+.semester {
+	display: flex;
+	/* grid-template-columns: repeat(6, 15%); */
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+	
+}
+
+.semester .header {
+	writing-mode:vertical-lr;
+	margin: 2rem 0 2rem 0;
+	font-size: calc(var(--base-fontsize) * var(--header-scale));
+	transform: rotate(180deg);
+}
+
+.course {
+	width: 5rem;
+	text-align: center;
+}
+
+.course input {
+	text-align: center;
+}
+
+.plus {
+	content: '+';
+	width: 2.5rem;
+	margin: 0 1.25rem 0 1.25rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	align-self: center;
+}
