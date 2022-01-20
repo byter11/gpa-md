@@ -1,4 +1,16 @@
 @import url('~simpledotcss/simple.min.css');
+:root {
+  --bg: #fff;
+  --accent-bg: #f5f7ff;
+  --text: #212121;
+  --text-light: #585858;
+  --border: #d8dae1;
+  --accent: #53c3df;
+  --code: #d81b60;
+  --preformatted: #444;
+  --marked: #ffdd33;
+  --disabled: #efefef;
+}
 
 html[data-theme='light'] {
   --bg: #fff;
@@ -30,6 +42,9 @@ html[data-theme='dark'] video {
   opacity: 0.8;
 }
 
+input {
+  width: 80%;
+}
 /* html,
 body {
   padding: 0;

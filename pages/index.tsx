@@ -2,11 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Container from '../components/input/container';
+import { MouseEvent } from 'react';
 
 export default function Home() {
-  const toggleTheme = (e) => {
-    const theme = document.documentElement.getAttribute('data-theme');
-    const newTheme = theme == 'light' ? 'dark' : 'light';
+
+  function toggleTheme() {
+    const theme: string = document.documentElement.getAttribute('data-theme');
+    const newTheme: string = theme == 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', newTheme);
   }
 

@@ -3,13 +3,14 @@ import SemesterInput from './semesterInput';
 import { useState } from 'react';
 
 export default function Container() {
-	const [semesterValues, setSemesterValues] = useState([0,0]);
+	const [semesterValues, setSemesterValues] 
+		= useState<number[]>([0,0]);
 
-	const addSemester = () => {
+	function addSemester() {
 		setSemesterValues( (oldValues) => [...oldValues, 0]);
 	}
 
-	const handleUpdate = (key, value) => {
+	function handleUpdate(key: number, value: number) {
 		setSemesterValues(oldValues => 
 			oldValues.map( (v, i) => {
 				if(i == key)
@@ -25,7 +26,7 @@ export default function Container() {
 				<SemesterInput 
 					key={idx}
 					semester={idx+1}
-					onUpdate={(newValue)=>handleUpdate(idx, newValue)}
+					onUpdate={(newValue: number)=>handleUpdate(idx, newValue)}
 				/>
 			)}
 		</div>
