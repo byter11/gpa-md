@@ -5,11 +5,12 @@ import Container from '../components/input/container';
 import { MouseEvent } from 'react';
 
 export default function Home() {
-
+  
   function toggleTheme() {
     const theme: string = document.documentElement.getAttribute('data-theme');
     const newTheme: string = theme == 'light' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
   }
 
   return (

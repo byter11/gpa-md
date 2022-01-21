@@ -1,9 +1,10 @@
 @import url('~simpledotcss/simple.min.css');
+
 :root {
   --bg: #fff;
   --accent-bg: #f5f7ff;
   --text: #212121;
-  --text-light: #585858;
+  --text-light: #727272;
   --border: #d8dae1;
   --accent: #53c3df;
   --code: #d81b60;
@@ -16,7 +17,7 @@ html[data-theme='light'] {
   --bg: #fff;
   --accent-bg: #f5f7ff;
   --text: #212121;
-  --text-light: #585858;
+  --text-light: #727272;
   --border: #d8dae1;
   --accent: #53c3df;
   --code: #d81b60;
@@ -61,3 +62,4 @@ a {
 * {
   box-sizing: border-box;
 } */
+
