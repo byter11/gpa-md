@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "frappe-charts": "^1.6.2",
+    "html-element": "^2.3.1",
+    "jsdom": "^19.0.0",
     "next": "^12.0.8",
     "next-transpile-modules": "^9.0.0",
     "react": "17.0.2",
