@@ -9,6 +9,7 @@ type Course = {
 };
 
 type SemesterInputProps = {
+	key?: any,
 	semester: number,
 	onUpdate: (sgpa: Semester) => void
 }
@@ -57,6 +58,7 @@ export default function SemesterInput(
 					<div>
 						{idx==0 && <label htmlFor="gpa">gpa</label>}
 						<input 
+							
 							name="gpa" 
 							value={course.gpa} 
 							onChange={(e) => handleUpdate(e, idx)}
@@ -65,7 +67,11 @@ export default function SemesterInput(
 					</div>
 					<div>
 						{idx==0 && <label>credits</label>}
-						<input name="crd" value={course.crd} onChange={(e) => handleUpdate(e, idx)}/>
+						<input 
+							
+							name="crd" 
+							value={course.crd} 
+							onChange={(e) => handleUpdate(e, idx)}/>
 					</div>
 					
 				</div>
