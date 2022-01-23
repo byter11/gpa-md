@@ -1,0 +1,176 @@
+<svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="530" height="320">
+	<style>
+		.zui-chart{}
+.zui-chart-bar .zui-chart-canvas rect{
+    animation: animX 1s ease 0s 1;
+}
+.zui-chart-column .zui-chart-canvas rect{
+    animation: animY 1s ease 0s 1;
+}
+.zui-chart-donut .zui-chart-canvas,
+.zui-chart-pie .zui-chart-canvas{
+    animation: animSpin 1s ease 0s 1;
+}
+.zui-chart-radar .zui-chart-area,
+.zui-chart-rose .zui-chart-area{
+    animation: animScale 1.2s ease 0s 1;
+}
+.zui-chart-candlestick .zui-chart-candle,
+.zui-chart-ohlc .zui-chart-item{
+    animation: animFrames 1.5s ease 0s 1;
+}
+.zui-chart-area .zui-chart-canvas path,
+.zui-chart-line .zui-chart-canvas path,
+.zui-chart-polar .zui-chart-area path,
+.zui-chart-spline .zui-chart-canvas path,
+.zui-chart-stepline .zui-chart-canvas path, #cpath{
+    animation: animLine 5s ease 0s 1;
+}
+.zui-chart-area .zui-chart-canvas circle,
+.zui-chart-line .zui-chart-canvas circle,
+.zui-chart-bubble .zui-chart-circles circle,
+.zui-chart-scatter .zui-chart-markers circle,
+.zui-chart-polar .zui-chart-points circle,
+.zui-chart-spline .zui-chart-points circle,
+.zui-chart-stepline .zui-chart-canvas circle, circle{
+    animation: animRadius 0.7s ease 0s 1;
+}
+/* Keyframes */
+@keyframes animX{
+    0% {
+        x: -100%;
+    }
+    100% {
+        x: attr(x);
+    }
+}
+@keyframes animY{
+    0% {
+        y: 100%;
+    }
+    100% {
+        y: attr(y);
+    }
+}
+@keyframes animLine{
+    0% {
+        stroke-dashoffset: 3000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes animRadius{
+    0% {
+        r: 0;
+    }
+    100% {
+        r: auto;
+    }
+}
+@keyframes animFrames{
+    0% {
+        opacity: 0;
+        transform: translate(0, -100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes animScale{
+    0% {
+        opacity: 0;
+        transform-origin: center;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: center;
+        transform: scale(1);
+    }
+}
+@keyframes animSpin{
+    0% {
+        opacity: 0;
+        transform-origin: center;
+        transform: rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: center;
+        transform: rotate(0);
+    }
+}
+	</style>
+	<defs>
+		<clipPath id="zinoui-17627572">
+			<rect x="53" y="32" width="477" height="256" fill="none"></rect>
+		</clipPath>
+	</defs>
+	<desc>Created with Zino UI 1.5</desc>
+	<rect x="0" y="0" width="530" height="320" fill="#FFFFFF" stroke="none" stroke-width="0"></rect>
+	<g class="zui-chart-grid">
+		<line x1="53" y1="32" x2="53" y2="288" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="132.5" y1="32" x2="132.5" y2="288" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="212" y1="32" x2="212" y2="288" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="291.5" y1="32" x2="291.5" y2="288" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="371" y1="32" x2="371" y2="288" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="450.5" y1="32" x2="450.5" y2="288" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="530" y1="32" x2="530" y2="288" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="53" y1="32" x2="530" y2="32" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="53" y1="288" x2="530" y2="288" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="53" y1="202.67" x2="530" y2="202.67" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="53" y1="117.33" x2="530" y2="117.33" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+		<line x1="53" y1="32" x2="530" y2="32" fill="none" shape-rendering="crispEdges" stroke="#ccc" stroke-dasharray="5,2" stroke-width="1"></line>
+	</g>
+	<g class="zui-chart-axis-x">
+		<line x1="53" y1="289" x2="53" y2="293" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="132.5" y1="289" x2="132.5" y2="293" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="212" y1="289" x2="212" y2="293" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="291.5" y1="289" x2="291.5" y2="293" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="371" y1="289" x2="371" y2="293" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="450.5" y1="289" x2="450.5" y2="293" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="530" y1="289" x2="530" y2="293" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+	</g>
+	<g class="zui-chart-axis-y">
+		<line x1="49" y1="288" x2="53" y2="288" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="49" y1="202.67" x2="53" y2="202.67" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="49" y1="117.33" x2="53" y2="117.33" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+		<line x1="49" y1="32" x2="53" y2="32" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></line>
+	</g>
+	<g class="zui-chart-labels zui-chart-labels-y">
+		<text x="43" y="288" fill="#444" font-family="Arial" font-size="12px" text-anchor="end">
+			<tspan alignment-baseline="middle">3</tspan>
+		</text>
+		<text x="43" y="202.67" fill="#444" font-family="Arial" font-size="12px" text-anchor="end">
+			<tspan alignment-baseline="middle">4</tspan>
+		</text>
+		<text x="43" y="117.33" fill="#444" font-family="Arial" font-size="12px" text-anchor="end">
+			<tspan alignment-baseline="middle">5</tspan>
+		</text>
+		<text x="43" y="32" fill="#444" font-family="Arial" font-size="12px" text-anchor="end">
+			<tspan alignment-baseline="middle">6</tspan>
+		</text>
+	</g>
+	<g class="zui-chart-labels zui-chart-labels-x">
+		<text x="92.75" y="308" fill="#444" font-family="Arial" font-size="12px" text-anchor="middle">2016</text>
+		<text x="172.25" y="308" fill="#444" font-family="Arial" font-size="12px" text-anchor="middle">2017</text>
+		<text x="251.75" y="308" fill="#444" font-family="Arial" font-size="12px" text-anchor="middle">2018</text>
+		<text x="331.25" y="308" fill="#444" font-family="Arial" font-size="12px" text-anchor="middle">2019</text>
+		<text x="410.75" y="308" fill="#444" font-family="Arial" font-size="12px" text-anchor="middle">2020</text>
+		<text x="490.25" y="308" fill="#444" font-family="Arial" font-size="12px" text-anchor="middle">2021</text>
+	</g>
+	<g class="zui-chart-axis">
+		<polyline points="53,32 53,288 530,288" fill="none" shape-rendering="crispEdges" stroke="#444" stroke-width="1"></polyline>
+	</g>
+	<g class="zui-chart-canvas" clip-path="url(#zinoui-17627572)">
+		<path id="cpath" d="M92.75,288.00L172.25,117.33L251.75,202.67L331.25,117.33L410.75,32.00L490.25,117.33" fill="none" fill-opacity="1" stroke="#DC3912" stroke-width="2" style="stroke-dasharray: 3000,3000"></path>
+		<circle cx="92.75" cy="288.00" r="4" fill="#FFFFFF" stroke="#DC3912" stroke-width="2" tooltip="Miami Heat"></circle>
+		<circle cx="172.25" cy="117.33" r="4" fill="#FFFFFF" stroke="#DC3912" stroke-width="2" tooltip="Miami Heat"></circle>
+		<circle cx="251.75" cy="202.67" r="4" fill="#FFFFFF" stroke="#DC3912" stroke-width="2" tooltip="Miami Heat"></circle>
+		<circle cx="331.25" cy="117.33" r="4" fill="#FFFFFF" stroke="#DC3912" stroke-width="2" tooltip="Miami Heat"></circle>
+		<circle cx="410.75" cy="32.00" r="4" fill="#FFFFFF" stroke="#DC3912" stroke-width="2" tooltip="Miami Heat"></circle>
+		<circle cx="490.25" cy="117.33" r="4" fill="#FFFFFF" stroke="#DC3912" stroke-width="2" tooltip="Miami Heat"></circle>
+	</g>
+</svg>

@@ -1,4 +1,4 @@
-import { AxisOptions, Chart, ChartData, ChartType, ChartOptions } from "frappe-charts"
+import { Chart, ChartData, ChartOptions } from "frappe-charts"
 import React, { useRef, useEffect } from "react";
 import type { Semester } from 'components/input/container';
 
