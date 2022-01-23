@@ -2,25 +2,30 @@
 export default function Labels(props: {
 	labels: string[],
 	start: number,
-	length: [number, number],
+	points: number[],
 	direction: "vertical" | "horizontal"	
 }) {
-	const { labels, start, length, direction } = props;
-	const points = labels.map((label, i) => {
-		const offset = i * length[1]/(labels.length-1) - label.length*3;
+	const { labels, start, points, direction } = props;
+
+	const labelledPoints = labels.map((label, i) => {
 		if(props.direction === "horizontal")
-			return {x: length[0] + offset , y: start, label: label}
+			return {x: points[i], y: start, label: label}
 		else
-			return {x: start, y: length[0] + length[1] - offset, label: label}
+			return {x: start, y: points[i], label: label}
 	})
 
 	return <g>
-		{points.map(({x,y, label}) => 
-			<text
-				x={x} y={y}
-			>
+		{labelledPoints.map(({x,y, label}, i) => 
+		<text
+			key={i}
+			x={x} y={y}
+			textAnchor="middle"
+			fontSize={12}
+			className="text-muted">
+			<tspan alignmentBaseline="middle">
 				{label}
-			</text>
+			</tspan>	
+		</text>
 		)}
 	</g>
 }
