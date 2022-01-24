@@ -48,6 +48,7 @@ export default function LineChart(props: ChartData) {
                 dangerouslySetInnerHTML={{
                     __html: `
                 g > circle:hover + g{
+                    z-index: 1000;
                     visibility: visible !important;
                 }
                 g > circle:hover {
