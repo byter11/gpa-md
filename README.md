@@ -2,7 +2,7 @@
 This is a [Next.js](https://nextjs.org/) project hosted on [Vercel](https://vercel.com).
 
 ## Frontend
-![screenshot](/public/Screenshot 2022-01-24.png)
+![screenshot](/public/Screenshot-2022-01-24.png?raw=true)
 
 ## API
 ```
