@@ -1,20 +1,22 @@
 import styles from './input.module.css';
 import SemesterInput from './semesterInput';
 import { useEffect, useRef, useState } from 'react';
-import { ReactChart} from 'common/chart';
+import LineChart from 'common/chart';
 
 export type Semester = {
-	name?: string ,
+	name?: string,
 	sgpa: number,
 	crd: number
 };
 
 export default function Container() {
-	const [cgpa, setCgpa] = useState<number>(0);
+	const [cgpaValues, setCgpaValues] = useState<number[]>([]);
 	const [semesterValues, setSemesterValues] 
 		= useState<Semester[]>([{sgpa: 0, crd: 0}]);
+	const scrollNeeded = useRef(false);
 
 	function addSemester() {
+		scrollNeeded.current = true;
 		setSemesterValues( (oldValues) => [...oldValues, {sgpa: 0, crd: 0}]);
 	}
 
@@ -29,14 +31,21 @@ export default function Container() {
 	}
 
 	useEffect(()=>{
+		if(scrollNeeded.current === true) {
+			window.scrollTo(0, document.body.scrollHeight);
+			scrollNeeded.current = false;
+		}
+		const cgpa = [];
 		let accumulatedGPA = 0, credits = 0;
 		semesterValues.forEach(({sgpa, crd}) => {
+			console.log(sgpa,crd)
 			accumulatedGPA += +sgpa * +crd
 			credits += +crd;
+			cgpa.push(accumulatedGPA/credits || 0);
 		});
-		setCgpa(accumulatedGPA/credits);
+		setCgpaValues(cgpa);
+		console.log(cgpa);
 	},[semesterValues])
-
 
 	return (
 		<div className={styles.container}>
@@ -51,8 +60,14 @@ export default function Container() {
 			)}
 			<button className={styles.plus} onClick={addSemester}>Add Semester</button>
 			<hr/>
-
-			<ReactChart data={semesterValues}/>
+			<LineChart 
+			// values={semesterValues.map(({sgpa}) => sgpa)}
+			values={{
+				sgpa: semesterValues.map(({sgpa}) => sgpa),
+				cgpa: cgpaValues
+			}}
+			labels={semesterValues.map(({name}) => name || ``)}
+			/>
 		</div>
 	)
 }

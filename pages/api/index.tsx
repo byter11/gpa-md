@@ -7,7 +7,7 @@ import LineChart from 'common/chart';
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const svg = ReactDOMServer.renderToStaticMarkup(
     <LineChart 
-      values={[2,3,1, 0, 4]}
+      values={{gpa: [2, 3, 1, 0, 4]}}
       labels={["Fall 2019", "Spring 2020", "2021", "2022", "2024"]}
     />
   );

@@ -18,7 +18,7 @@ export default function Grid(props: {
                 stroke="#53c3df"
                 strokeWidth="1"
                 style={{
-                    animation: 'animLine 15s ease 0s 1',
+                    animation: 'animLine 5s ease 0s 1',
                     strokeDasharray:"3000,3000"
                 }}
             />

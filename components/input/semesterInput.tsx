@@ -45,7 +45,6 @@ export default function SemesterInput(
 			accumulatedGPA += +gpa * +crd;
 			totalCredits += +crd;
 		})
-
 		onUpdate({sgpa: accumulatedGPA/totalCredits || 0, crd: totalCredits});
 	}, [courseValues])
 
@@ -58,7 +57,7 @@ export default function SemesterInput(
 					<div>
 						{idx==0 && <label htmlFor="gpa">gpa</label>}
 						<input 
-							
+							autoComplete="off"
 							name="gpa" 
 							value={course.gpa} 
 							onChange={(e) => handleUpdate(e, idx)}
@@ -68,7 +67,7 @@ export default function SemesterInput(
 					<div>
 						{idx==0 && <label>credits</label>}
 						<input 
-							
+							autoComplete="off"
 							name="crd" 
 							value={course.crd} 
 							onChange={(e) => handleUpdate(e, idx)}/>

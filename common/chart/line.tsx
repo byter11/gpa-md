@@ -1,66 +1,74 @@
 import type { ClipPath } from '.';
+type Points = {
+	[key: string]: {x: number, y: number, value: number}[]
+}
 
 export default function Line(props: {
 	clipPath: ClipPath
 	yDivisions: number,
-	values: number[],
-	color: string}) {
+	values: {[key: string]: number[]},
+	colors: string[]}) {
 	const [x, width] = props.clipPath.x;
 	const [y, height] = props.clipPath.y;
 	const {values} = props;
 
-	const points =
-		values.map((value, i) => {
-			return {
-				x: x + i * width / (values.length - 1),
-				y: height - height / props.yDivisions * value + y,
-				value: value
-			}
+	const points: Points = {};
+	Object.entries(values).forEach(([key, value]) => {
+		Object.assign(points, {
+			[key]: value.map((v, i) => ({
+				x: x + i * width / ((value.length - 1) || 1),
+				y: height - height / props.yDivisions * v + y,
+				value: v
+			}))
 		})
+	});
 
+	console.log(points);
 	return (
 		<>
 		<g>
-		<path
-			d={`M${points.map(({x,y})=>`${x},${y}L`).join('')}`}
-			fill="none" fillOpacity={1}
-			stroke={`url(#${props.color}-gradient)`} stroke-width="2"
-			style={{
-				animation: 'animLine 8s ease 0s 1',
-				strokeDasharray: "3000,3000"
-			}}
-		/>
-		{points.map(({x, y, value}, i) =>
-			<g>
-            <circle cx={x} cy={y} r="6"
-				key={i}
+		{Object.entries(points).map(([name, namedPoints], lineIdx) => 
+			namedPoints.map(({x, y, value}, i) =>
+			<g key={i}>
+				{namedPoints[i+1] &&
+				<path
+				d={`M${x},${y}${`L${namedPoints[i+1].x},${namedPoints[i+1].y}`}`}
+				fill="none" fillOpacity={1}
+				stroke={`url(#${props.colors[lineIdx]}-gradient)`} strokeWidth="2"
 				style={{
-					animation: 'animRadius 0.7s ease 0s 1'
+					strokeDasharray: "3000,3000"
 				}}
-				fill={props.color}
-                stroke="white" strokeWidth="2"
+				/>
+			}
+				<circle cx={x} cy={y} r="6"
+					style={{
+						animation: 'animRadius 0.7s ease 0s 1'
+					}}
+					fill={props.colors[lineIdx]}
+					stroke="white" strokeWidth="2"
+					
+					/>
+				<g
+				style={{visibility: 'hidden'}}>
+				<polygon
+					points={`${x-50},${y-10} ${x-5},${y-10} ${x},${y-6} ${x+5},${y-10} ${x+50},${y-10} ${x+50},${y-35} ${x-50},${y-35}`}
+					fill="gray"
+					fillOpacity={0.9}
+				/>
+				<text 
+				x={x} 	
+				y={y-18}
+				textAnchor="middle"
+				fontSize={15}
+				fill="white"
+				>
+				{name}: {value.toFixed(2)}</text>
+				</g>
 				
-                />
-			<g
-			style={{visibility: 'hidden'}}>
-			<polygon
-				points={`${x-50},${y-10} ${x-5},${y-10} ${x},${y-6} ${x+5},${y-10} ${x+50},${y-10} ${x+50},${y-35} ${x-50},${y-35}`}
-				fill="gray"
-				fillOpacity={0.9}
-			/>
-			<text 
-			x={x} 	
-			y={y-18}
-			textAnchor="middle"
-			fontSize={15}
-			fill="white"
-			>
-			CGPA: {value}</text>
-			</g>
-			
-			
-			</g>
-            )}
+				
+				</g>
+				)
+			)}
 		</g>
 		</>
 	)
