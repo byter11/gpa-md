@@ -5,10 +5,23 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import LineChart from 'common/chart';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
+    const sgpa: number[] = req.query.sgpa 
+    ? (req.query.sgpa as string).split(',').map(s => +s)
+    : null
+    const cgpa: number[] = req.query.cgpa
+    ? (req.query.cgpa as string).split(',').map(s => +s)
+    : null
+    const labels: string[] = req.query.labels
+    ? (req.query.labels as string).split(',')
+    : []
+    
+  if(!sgpa && !cgpa)
+    return res.send(400);
+
   const svg = ReactDOMServer.renderToStaticMarkup(
     <LineChart 
-      values={{gpa: [2, 3, 1, 0, 4]}}
-      labels={["Fall 2019", "Spring 2020", "2021", "2022", "2024"]}
+      values={{sgpa: sgpa, cgpa: cgpa}}
+      labels={labels}
     />
   );
   res.writeHead(200, {

@@ -25,6 +25,12 @@ export default function Home() {
         <span className={styles.themeToggler} role="" onClick={toggleTheme}>☼</span>
         <Container/>
       </main>
+      <footer>
+        <small className="text-muted mb-2">
+          {'</> with <3 by'} <strong><a href="https://github.com/byter11">mohsin</a></strong>
+  </small>
+      </footer>
     </div>
+
   )
 }

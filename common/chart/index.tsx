@@ -52,8 +52,7 @@ export default function LineChart(props: ChartData) {
                     visibility: visible !important;
                 }
                 g > circle:hover {
-                    fill: cyan !important;
-                    stroke: cyan !important;
+                    stroke: none !important;
                 }
                 path {
                     animation: animLine 5s ease 0s 1;
