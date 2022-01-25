@@ -1,76 +1,76 @@
-.container h4{
-	font-weight: lighter;
-	color: var(--text-light)
+.container h4 {
+  font-weight: lighter;
+  color: var(--text-light);
 }
 
 .semester {
-	/* grid-template-columns: repeat(6, 15%); */
-	display: flex;
-	overflow: auto;
-	flex: 1;
-	justify-items: center;
-	align-content: center;
-	align-items: center;
+  /* grid-template-columns: repeat(6, 15%); */
+  display: flex;
+  overflow: auto;
+  flex: 1;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
 }
 
 .semester::-webkit-scrollbar-thumb {
-	background-color: var(--accent-bg);
+  background-color: var(--accent-bg);
 }
 
 .semester::-webkit-scrollbar-track {
-	background-color: var(--bg);
+  background-color: var(--bg);
 }
 
 .semester::-webkit-scrollbar {
-	width: 0.4rem;
-	height: 0.4rem;
+  width: 0.4rem;
+  height: 0.4rem;
 }
 
 .semester .header {
-	min-width: fit-content;
-	margin: 1rem 0 1rem 0;
-	text-align: center;
-	font-size: calc(var(--base-fontsize) * var(--header-scale));
-	transform: rotate(-90deg);
+  min-width: fit-content;
+  margin: 1rem 0 1rem 0;
+  text-align: center;
+  font-size: calc(var(--base-fontsize) * var(--header-scale));
+  transform: rotate(-90deg);
 }
 
 .course {
-	flex-shrink: 0;
-	width: 5rem;
-	text-align: center;
+  flex-shrink: 0;
+  width: 5rem;
+  text-align: center;
 }
 
 .course div {
-	position: relative;
+  position: relative;
 }
 
 .course input {
-	text-align: center;
+  text-align: center;
 }
 
 .course label {
-	color: var(--accent);
-	font-size: 0.7rem;
-	line-height: 0.7rem;
-	margin: 2px 4px;
-	position: absolute;
+  color: var(--accent);
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+  margin: 2px 4px;
+  position: absolute;
 }
 
 .labels p {
-	font-size: 1rem;
-	min-width: fit-content;
-	word-break: keep-all;
-	flex-shrink: 1;
-	text-align: center;
-	color: var(--text-light);
-	transition: font-size 1s linear;
+  font-size: 1rem;
+  min-width: fit-content;
+  word-break: keep-all;
+  flex-shrink: 1;
+  text-align: center;
+  color: var(--text-light);
+  transition: font-size 1s linear;
 }
 
 .plus {
-	background: transparent;
-	color: var(--text);
-	border: 1px solid var(--accent);
-	min-width: fit-content;
-	font-size: 1rem;
-	align-self: center;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--accent);
+  min-width: fit-content;
+  font-size: 1rem;
+  align-self: center;
 }
