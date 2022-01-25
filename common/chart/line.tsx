@@ -24,7 +24,6 @@ export default function Line(props: {
     })
   });
 
-  console.log(points);
   return (
     <>
       <g>

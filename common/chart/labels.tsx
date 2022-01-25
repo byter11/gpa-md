@@ -21,7 +21,7 @@ export default function Labels(props: {
         x={x} y={y}
         textAnchor="middle"
         fontSize={12}
-        fill="#2F7DAE"
+        fill="gray"
         className="text-muted">
         <tspan alignmentBaseline="middle">
           {label}

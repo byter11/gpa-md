@@ -1,6 +1,7 @@
 import styles from './input.module.css';
 import SemesterInput from './semesterInput';
-import { useEffect, useRef, useState } from 'react';
+import ApiLink from './apiLink';
+import React, { useEffect, useRef, useState, MouseEvent, RefObject } from 'react';
 import LineChart from 'common/chart';
 
 export type Semester = {
@@ -10,10 +11,10 @@ export type Semester = {
 };
 
 export default function Container() {
-  const [cgpaValues, setCgpaValues] = useState<number[]>([]);
   const [semesterValues, setSemesterValues]
     = useState<Semester[]>([{ sgpa: 0, crd: 0 }]);
   const scrollNeeded = useRef(false);
+  const containerWidth = useRef<HTMLDivElement>(null);
 
   function addSemester() {
     scrollNeeded.current = true;
@@ -35,20 +36,26 @@ export default function Container() {
       window.scrollTo(0, document.body.scrollHeight);
       scrollNeeded.current = false;
     }
+  }, [semesterValues])
+
+  function getCGPA() : number[] {
     const cgpa = [];
     let accumulatedGPA = 0, credits = 0;
     semesterValues.forEach(({ sgpa, crd }) => {
-      console.log(sgpa, crd)
       accumulatedGPA += +sgpa * +crd
       credits += +crd;
-      cgpa.push(accumulatedGPA / credits || 0);
+      if(accumulatedGPA/credits)
+        cgpa.push( +(accumulatedGPA/credits).toFixed(2) )
+      else
+        cgpa.push(0);
     });
-    setCgpaValues(cgpa);
-    console.log(cgpa);
-  }, [semesterValues])
+    return cgpa;
+  }
+
+ 
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerWidth}>
       <h4>generate your cgpa graph</h4>
       <hr />
       {semesterValues.map((sem, idx) =>
@@ -61,12 +68,17 @@ export default function Container() {
       <button className={styles.plus} onClick={addSemester}>Add Semester</button>
       <hr />
       <LineChart
-        // values={semesterValues.map(({sgpa}) => sgpa)}
         values={{
           sgpa: semesterValues.map(({ sgpa }) => sgpa),
-          cgpa: cgpaValues
+          cgpa: getCGPA()
         }}
         labels={semesterValues.map(({ name }) => name || ``)}
+        width={containerWidth.current ? containerWidth.current.offsetWidth : 300}
+      />
+      <ApiLink
+        sgpa = {semesterValues.map(({sgpa})=>+sgpa.toFixed(2))}
+        cgpa = {getCGPA()}
+        labels = {semesterValues.map(({name}) => name).filter(name => name)}
       />
     </div>
   )

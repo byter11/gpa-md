@@ -15,7 +15,7 @@ export default function Grid(props: {
           y1={Math.max(...props.ys)}
           y2={Math.min(...props.ys)}
           shapeRendering="crispEdges"
-          stroke="#53c3df"
+          stroke="gray"
           strokeWidth="1"
           style={{
             animation: 'animLine 5s ease 0s 1',

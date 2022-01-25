@@ -15,7 +15,8 @@ export type ClipPath = {
 }
 
 export default function LineChart(props: ChartData) {
-  const { width = 600, height = 300, values, labels } = props;
+  const { width = 600, values, labels } = props;
+  const height = width/2;
   const yLabels = ['0 -', '1 -', '2 -', '3 -', '4 -'];
   const clipPath: ClipPath = { x: [50, width - 100], y: [50, height - 100] }
 
@@ -36,8 +37,8 @@ export default function LineChart(props: ChartData) {
   return (
     <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width={width} height={height}>
       <defs>
-        {colors.map(({ color, a, b }) =>
-          <linearGradient id={`${color}-gradient`} gradientUnits="userSpaceOnUse">
+        {colors.map(({ color, a, b }, i) =>
+          <linearGradient key={i} id={`${color}-gradient`} gradientUnits="userSpaceOnUse">
             <stop offset="5%" stopColor={a} />
             <stop offset="95%" stopColor={b} />
           </linearGradient>

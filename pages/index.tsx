@@ -18,6 +18,7 @@ export default function Home() {
       <Head>
         <title>Chart Generator</title>
         <meta name="description" content="Generate graph" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
