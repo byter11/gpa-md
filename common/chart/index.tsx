@@ -48,15 +48,27 @@ export default function LineChart(props: ChartData) {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-                g > circle:hover + g{
-                    z-index: 1000;
-                    visibility: visible !important;
-                }
-                g > circle:hover {
-                    stroke: none !important;
-                }
                 path {
                     animation: animLine 5s ease 0s 1;
+                }
+                @keyframes animShow{
+                  0% {
+                    display: none;
+                    opacity: 0;
+                  }
+                  20% {
+                    display: block;
+                    opacity: 1;
+                  }
+                  50% {
+                    display: none;
+                    opacity: 0
+                  }
+                  100% {
+                    display: none;
+                    opacity: 0
+                  }
+                  
                 }
                 @keyframes animLine{
                     0% {

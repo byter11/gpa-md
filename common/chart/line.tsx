@@ -48,7 +48,9 @@ export default function Line(props: {
                 stroke="white" strokeWidth="2"
 
               />
-              <g style={{ visibility: 'hidden' }}>
+              <g style={{ 
+                animation: `animShow ${lineIdx*i+15}s ease-out infinite`
+              }}>
                 <polygon
                   points={`${x - 50},${y - 10} ${x - 5},${y - 10} ${x},${y - 6} ${x + 5},${y - 10} ${x + 50},${y - 10} ${x + 50},${y - 35} ${x - 50},${y - 35}`}
                   fill="gray"
